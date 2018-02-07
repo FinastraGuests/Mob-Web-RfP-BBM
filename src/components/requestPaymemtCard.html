@@ -1,0 +1,39 @@
+<ion-card>
+
+
+    <ion-card-content>
+        <ion-list>
+
+            <ion-item>
+                <ion-label fixed>To</ion-label>
+                <ion-input readonly="true" type="text" value="{{payment.PmtInf.Dbtr.Nm}}"></ion-input>
+
+            </ion-item>
+
+            <ion-item>
+                <ion-label fixed>Amount</ion-label>
+                <ion-input readonly="true" type="text" value="{{payment.PmtInf.CdtTrfTx[0].Amt.InstdAmt| currency}}"></ion-input>
+            </ion-item>
+
+            <ion-item>
+                <ion-label fixed>Request Info</ion-label>
+                <ion-input readonly="true" type="text" value="{{payment.PmtInf.CdtTrfTx[0].RmtInf.Ustrd[0] }}"></ion-input>
+
+            </ion-item>
+
+            <ion-item>
+                <ion-label fixed>Status</ion-label>
+                <ion-input readonly="true" type="text" value="{{status}}"></ion-input>
+            </ion-item>
+
+        </ion-list>
+        <pre class="tab"></pre>
+        <pre class="tab"></pre>
+        <pre class="tab"></pre>
+        <pre class="tab"></pre>
+        <pre class="tab"></pre>
+
+
+
+    </ion-card-content>
+</ion-card>

@@ -1,0 +1,76 @@
+<ion-header>
+  <ion-navbar color="primary">
+      <button ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+        </button>
+    <ion-title>
+      BBM Factory
+      <img src="./assets/imgs/Beer.png" alt="Beer" width="30" height="35">
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  Invoice #{{invoiceNumber}} for {{amountSamuelAdams}} Samuel Adams , {{amountBudweiser}} Budweiser and {{amountGuiness}} Guiness px to the total amount of {{amountSamuelAdams*12.95+amountBudweiser*9.95+amountGuiness*15.99| currency}} to be paid by {{chosenBeneficiary.name}} on {{today | date:'shortDate'}}.
+  Click on Submit to send a request for payment
+  
+  <p></p>
+
+  <ion-list>
+    <ion-item>
+      <ion-label fixed>Customer</ion-label>
+      <ion-select [(ngModel)]="chosenBeneficiary" >
+        <ion-option required *ngFor="let bnf of beneficiarys" [value] ="bnf" >{{bnf.name}}</ion-option>
+      </ion-select>
+    </ion-item> 
+   
+    
+
+    <ion-item>
+      <ion-label fixed>Amount</ion-label>
+      <ion-input type="text" readonly="true" value="{{amountSamuelAdams*12.95+amountBudweiser*9.95+amountGuiness*15.99| currency}}"></ion-input>
+    </ion-item>
+
+    <ion-item >
+    
+      <ion-label fixed>Info</ion-label>
+      
+	  <!-- <ion-textarea cols="3" (ngModel)="info" value="The total of {{amount}} \r\n Premium Lobsters \r\n $9.95 e/o {{today | date:'mediumDate'}}"></ion-textarea> -->
+    <ion-input type="text" readonly="true" (ngModel)="info" value="{{amountSamuelAdams+amountBudweiser+amountGuiness}} Beer px"></ion-input>
+    </ion-item>
+    <ion-list>
+    <ion-item>
+        <ion-label stacked>Samuel Adams – $12.95</ion-label>
+      <!-- <ion-label fixed>Number of Lobsters</ion-label> -->
+      <ion-range min="0" max="100" pin="true" [(ngModel)]="amountSamuelAdams" color="secondary">
+        <ion-icon range-left small name="beer"></ion-icon>
+        <ion-icon range-right name="beer"></ion-icon>
+      </ion-range>
+    </ion-item>
+
+    <ion-item>
+        <ion-label stacked>Budweiser – $9.95</ion-label>
+      <!-- <ion-label fixed>Number of Lobsters</ion-label> -->
+      <ion-range min="0" max="100" pin="true" [(ngModel)]="amountBudweiser" color="secondary">
+        <ion-icon range-left small name="beer"></ion-icon>
+        <ion-icon range-right name="beer"></ion-icon>
+      </ion-range>
+    </ion-item>
+
+    <ion-item>
+        <ion-label stacked>Guiness – $15.99</ion-label>
+      <!-- <ion-label fixed>Number of Lobsters</ion-label> -->
+      <ion-range min="0" max="100" pin="true" [(ngModel)]="amountGuiness" color="secondary">
+        <ion-icon range-left small name="beer"></ion-icon>
+        <ion-icon range-right name="beer"></ion-icon>
+      </ion-range>
+    </ion-item>
+
+    </ion-list>
+  </ion-list>
+
+  <button ion-button color="secondary" (click)="submit()" [disabled]="(!amountGuiness*!amountBudweiser*!amountSamuelAdams)||!chosenBeneficiary.name" style="text-transform: none;">Submit</button>
+  
+  
+</ion-content>
+
