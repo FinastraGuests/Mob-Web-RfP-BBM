@@ -14,12 +14,18 @@ import { HomePage } from '../pages/home/home';
 import { Status } from '../pages/status/status';
 import {RequestPaymentCard} from '../components/requestPaymemtCard';
 
+import {  CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+
+import { FilterStatusPipe } from '../pipes/filter-status/filter-status';
+
+
 @NgModule({
   declarations: [
     MyApp,
     RequestPaymentCard,
     Status,
-    HomePage
+    HomePage,
+    FilterStatusPipe
   ],
   imports: [
     BrowserModule,
@@ -32,9 +38,12 @@ import {RequestPaymentCard} from '../components/requestPaymemtCard';
   entryComponents: [
     MyApp,
     Status,
-    
+
     HomePage
   ],
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA
+],
   providers: [
     StatusBar,
     SplashScreen,

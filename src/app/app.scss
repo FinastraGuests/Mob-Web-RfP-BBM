@@ -14,3 +14,414 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+
+
+// linear-gradient(transparent 50%, #f9edda 50%)
+.mt-0{
+    margin-top: 0!important;
+}
+.mb-20{
+    margin-bottom: 20px!important;
+}
+.alert-button-group button:first-child .button-inner{
+  color:#000;
+}
+
+
+.popup-start {
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    right: 0;
+    z-index: 999;
+    background-color: #fff;
+    background-image: url(../assets/imgs/get-started.png);
+    background-size: cover;
+    background-position: center -80px;
+    color: transparent;
+    background-repeat: no-repeat;
+}
+.header{
+    background-image: url(../assets/imgs/header.png);
+    background-size: contain;
+    padding-top: 25.1%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.top-buttons{
+    text-align: center;
+    margin:10px 10px 20px;
+    button{
+        width:50%;
+        height: 48px;
+        border-radius: 5px;
+        background-color: #f9efe3;
+        box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.1);
+
+        font-family: Roboto;
+        font-size: 14px;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        text-align: center;
+
+
+        color: #414141;
+        font-weight: 300;
+        &.active{
+            font-weight: 500;
+            color: #d38504;
+            background-color: #ffffff;
+
+
+        }
+    }
+}
+
+.order{
+    padding: 10px;
+    .item-ios,
+    .item-md{
+        padding-left: 5px;
+        padding-right: 5px;
+        margin-bottom: 20px;
+    }
+    .input-wrapper > .select-md{
+        max-width: 85%;
+    }
+    >.label{
+        width: 96px;
+        height: 11px;
+        font-family: Roboto;
+        font-size: 10px;
+        font-weight: 300;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        text-align: center;
+        color: #d38504;
+    }
+    .item-inner{
+        // border-bottom:0!important;
+        position: relative;
+        &:after{
+
+
+        }
+        .label-ios,
+        .label-md{
+            display: none;
+        }
+        .select-ios,
+        .select-md{
+            padding: 0;
+        }
+        .select-icon{
+            position: absolute;
+            right: 0px;
+            // background: red;
+            // background-image: url(../assets/imgs/arrow-down.png);
+            width: 24px;
+            height: 24px;
+        }
+    }
+    .range-ios .range-knob,
+    .range-md .range-knob{
+        width: 24px;
+        height: 24px;
+        border-radius: 24px;
+        background-color: #d38504;
+        top:10px;
+    }
+    .range-ios.range-has-pin,
+    .range-md.range-has-pin{
+        padding-top: 5px;
+    }
+    .range-ios-secondary,
+    .range-md-secondary{
+        .range-pin,.range-bar-active,.range-knob{
+            color:#fff;
+            background: #d38504;
+            &:before{
+                background: #d38504;
+
+            }
+        }
+
+    }
+    .label-ios[stacked], .label-ios[floating],
+    .label-md[stacked], .label-md[floating]{
+        margin-left: 5px;
+        margin-top: 0;
+    }
+}
+.order-info{
+    border-radius: 5px;
+    background-color: #ffffff;
+    box-shadow: 0 0 4px 2px rgba(0, 0, 0, 0.1);
+    padding: 13px 12px 19px;
+
+    font-family: Roboto;
+    font-size: 14px;
+    font-weight: 300;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 2.14;
+    letter-spacing: normal;
+    text-align: left;
+    color: #414141;
+    div{
+        display: inline;
+    }
+    .info{
+        font-size: 20px;
+        font-weight: bold;
+        line-height: 1.5;
+        color: #d38504;
+    }
+}
+.buttons-wrap{
+    button{
+        font-family: Roboto;
+        font-size: 14px;
+        font-weight: 500;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        text-align: center;
+        background: transparent;
+        text-align: center;
+        display: block;
+        width: 340px;
+        height: 48px;
+        margin-left: auto;
+        margin-right: auto;
+        &.submit-button{
+            color: #ffffff;
+            margin: -10px auto 10px;
+            border-radius: 5px;
+            background-image: linear-gradient(93deg, #fad961, #f76b1c);
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            &[disabled]{
+                opacity: 1;
+                color:rgba(255,255,255,0.2);
+            }
+        }
+        &.cancel-button{
+            font-size: 14px;
+            font-weight: 500;
+            font-style: normal;
+            font-stretch: normal;
+            line-height: normal;
+            letter-spacing: normal;
+            text-align: center;
+            color: #d38504;
+        }
+    }
+}
+.thanku-popup{
+    .alert-wrapper{
+        width:calc(100% - 20px);
+        max-width: 100%;
+        height:calc(100% - 20px);
+        max-height: 100%;
+
+        .alert-head{
+            display:none
+        }
+        .alert-message{
+            max-height: 100%;
+            height: calc(100% - 50px);
+            display:flex;
+            align-items: center;
+            justify-content: center;
+            flex-flow: column;
+            .meesage-wraper{
+                display:flex;
+                align-items: center;
+                justify-content: center;
+                flex-flow: column;
+                .like-icon{
+                    height: 180px;
+                    width: 154px;
+                    background-image: url(../assets/imgs/graphics.png);
+                    background-position: center;
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                    margin-bottom: 30px;
+                }
+                .message{
+                    font-family: Roboto;
+                    font-size: 20px;
+                    font-weight: 300;
+                    font-style: normal;
+                    font-stretch: normal;
+                    line-height: normal;
+                    letter-spacing: normal;
+                    text-align: center;
+                    color: #d38504;
+                }
+            }
+        }
+    }
+}
+
+.update-info{
+    font-family: Roboto;
+    font-size: 14px;
+    font-weight: 300;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 2.14;
+    letter-spacing: normal;
+    text-align: right;
+    color: #414141;
+    margin-bottom: 20px;
+    padding-right: 15px;
+    .icon-refresh{
+        width: 24px;
+        height: 24px;
+        display: inline-block;
+        vertical-align: middle;
+        margin-right: 10px;
+        background-image: url(../assets/imgs/icon-refresh.png);
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+}
+.filter-buttons{
+    text-align: center;
+    padding-bottom: 20px;
+    button{
+
+        width: 100px;
+        height: 32px;
+        border-radius: 100px;
+        border: solid 1px #d38504;
+        display:inline-block;
+        background-color: transparent;
+
+
+
+        font-family: Roboto;
+        font-size: 14px;
+        font-weight: 500;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        color: #d38504;
+        position: relative;
+        margin: 0 10px;
+        max-width: calc(33.33% - 25px);
+        &.active{
+            color: #ffffff;
+            background-color: #d38504;
+        }
+        .number{
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            width: 22px;
+            height: 22px;
+            background-color: #d38504;
+            border: solid 3px #ffffff;
+            border-radius: 50%;
+            font-size: 11px;
+            line-height: 17px;
+            color:#fff;
+        }
+    }
+}
+.boxes{
+    background-color: #f9edda;
+    padding: 9px ;
+    margin-top: 21px;
+    min-height: 522px;
+    position: relative;
+    .request-box{
+        padding: 11px;
+        border-radius: 5px;
+        background-color: #ffffff;
+        box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.1);
+        margin-bottom: 11px;
+        position: relative;
+        height: 60px;
+        .title{
+            font-size: 16px;
+            font-weight: 300;
+            font-style: normal;
+            font-stretch: normal;
+            line-height: normal;
+            letter-spacing: normal;
+            text-align: left;
+            color: #d38504;
+        }
+        .invoice{
+            font-size: 12px;
+            font-weight: 300;
+            font-style: normal;
+            font-stretch: normal;
+            line-height: normal;
+            letter-spacing: normal;
+
+            position: absolute;
+            left: 10px;
+            bottom: 10px;
+        }
+
+        .amount{
+            position: absolute;
+            right: 10px;
+            bottom: 30px;
+            font-size: 12px;
+            font-weight: 300;
+            font-style: normal;
+            font-stretch: normal;
+            line-height: normal;
+            letter-spacing: normal;
+            text-align: right;
+            color: #414141;
+            .info{
+                color: #d38504;
+            }
+        }
+        .quantity{
+            position: absolute;
+            right: 10px;
+            bottom: 10px;
+            font-size: 12px;
+            font-weight: 300;
+            font-style: normal;
+            font-stretch: normal;
+            line-height: normal;
+            letter-spacing: normal;
+            text-align: right;
+            color: #414141;
+
+        }
+
+    }
+    &:before{
+        content: "";
+        position: absolute;
+        display: block;
+        background-position: top center;
+        background-repeat: no-repeat;
+        background-size: 100% auto;
+        background-image:  url(../assets/imgs/bg-wave.svg);
+        height: 30px;
+        width:100%;
+        background-color: #fff;
+        top:-21px;
+        right:0;
+        z-index: 2;
+    }
+}

@@ -1,76 +1,61 @@
-<ion-header>
-  <ion-navbar color="primary">
-      <button ion-button menuToggle>
-          <ion-icon name="menu"></ion-icon>
-        </button>
-    <ion-title>
-      BBM Factory
-      <img src="./assets/imgs/Beer.png" alt="Beer" width="30" height="35">
-    </ion-title>
-  </ion-navbar>
-</ion-header>
 
-<ion-content padding>
-  Invoice #{{invoiceNumber}} for {{amountSamuelAdams}} Samuel Adams , {{amountBudweiser}} Budweiser and {{amountGuiness}} Guiness px to the total amount of {{amountSamuelAdams*12.95+amountBudweiser*9.95+amountGuiness*15.99| currency}} to be paid by {{chosenBeneficiary.name}} on {{today | date:'shortDate'}}.
-  Click on Submit to send a request for payment
-  
-  <p></p>
 
-  <ion-list>
+
+<div class="order">
+    <div class="label">
+        CHOOSE CUSTOMER
+    </div>
     <ion-item>
-      <ion-label fixed>Customer</ion-label>
-      <ion-select [(ngModel)]="chosenBeneficiary" >
-        <ion-option required *ngFor="let bnf of beneficiarys" [value] ="bnf" >{{bnf.name}}</ion-option>
-      </ion-select>
-    </ion-item> 
-   
-    
-
-    <ion-item>
-      <ion-label fixed>Amount</ion-label>
-      <ion-input type="text" readonly="true" value="{{amountSamuelAdams*12.95+amountBudweiser*9.95+amountGuiness*15.99| currency}}"></ion-input>
+        <ion-label fixed>CHOOSE CUSTOMER</ion-label>
+        <ion-select [(ngModel)]="chosenBeneficiary" >
+            <ion-option required *ngFor="let bnf of beneficiarys" [value] ="bnf" >{{bnf.name}}</ion-option>
+        </ion-select>
     </ion-item>
-
-    <ion-item >
-    
-      <ion-label fixed>Info</ion-label>
-      
-	  <!-- <ion-textarea cols="3" (ngModel)="info" value="The total of {{amount}} \r\n Premium Lobsters \r\n $9.95 e/o {{today | date:'mediumDate'}}"></ion-textarea> -->
-    <ion-input type="text" readonly="true" (ngModel)="info" value="{{amountSamuelAdams+amountBudweiser+amountGuiness}} Beer px"></ion-input>
-    </ion-item>
-    <ion-list>
-    <ion-item>
+    <div class="label mb-20">
+        ADJUST QUANTITY
+    </div>
+    <div>
         <ion-label stacked>Samuel Adams – $12.95</ion-label>
-      <!-- <ion-label fixed>Number of Lobsters</ion-label> -->
-      <ion-range min="0" max="100" pin="true" [(ngModel)]="amountSamuelAdams" color="secondary">
-        <ion-icon range-left small name="beer"></ion-icon>
-        <ion-icon range-right name="beer"></ion-icon>
-      </ion-range>
-    </ion-item>
-
-    <ion-item>
+        <ion-range min="0" max="100" pin="true" [(ngModel)]="amountSamuelAdams" color="secondary">
+        </ion-range>
+    </div>
+    <div>
         <ion-label stacked>Budweiser – $9.95</ion-label>
-      <!-- <ion-label fixed>Number of Lobsters</ion-label> -->
-      <ion-range min="0" max="100" pin="true" [(ngModel)]="amountBudweiser" color="secondary">
-        <ion-icon range-left small name="beer"></ion-icon>
-        <ion-icon range-right name="beer"></ion-icon>
-      </ion-range>
-    </ion-item>
-
-    <ion-item>
+        <ion-range min="0" max="100" pin="true" [(ngModel)]="amountBudweiser" color="secondary">
+        </ion-range>
+    </div>
+    <div>
         <ion-label stacked>Guiness – $15.99</ion-label>
-      <!-- <ion-label fixed>Number of Lobsters</ion-label> -->
-      <ion-range min="0" max="100" pin="true" [(ngModel)]="amountGuiness" color="secondary">
-        <ion-icon range-left small name="beer"></ion-icon>
-        <ion-icon range-right name="beer"></ion-icon>
-      </ion-range>
-    </ion-item>
-
-    </ion-list>
-  </ion-list>
-
-  <button ion-button color="secondary" (click)="submit()" [disabled]="(!amountGuiness*!amountBudweiser*!amountSamuelAdams)||!chosenBeneficiary.name" style="text-transform: none;">Submit</button>
-  
-  
-</ion-content>
-
+        <ion-range min="0" max="100" pin="true" [(ngModel)]="amountGuiness" color="secondary">
+        </ion-range>
+    </div>
+    <div class="order-info">
+        <div>
+            Invoice #{{invoiceNumber}} for
+            <div *ngIf="amountSamuelAdams || amountBudweiser || amountGuiness">
+                <span class="info">{{amountSamuelAdams}}</span>
+                Samuel Adams ,
+                <span class="info">{{amountBudweiser}}</span>
+                Budweiser and <span class="info">{{amountGuiness}}</span>
+                Guiness px to the total amount of <span class="info">{{amountSamuelAdams*12.95+amountBudweiser*9.95+amountGuiness*15.99| currency}}</span>
+            </div>
+            <div *ngIf="!amountSamuelAdams && !amountBudweiser && !amountGuiness">
+                <span class="info">
+                    /
+                </span>
+                beers to the total amount of
+                <span class="info">
+                    /
+                </span>
+            </div>
+            to be paid by
+            <span class="info" *ngIf="chosenBeneficiary.name">{{chosenBeneficiary.name}}</span>
+            <span class="info" *ngIf="!chosenBeneficiary.name">/</span>
+            on {{today | date:'shortDate'}}.
+        </div>
+    </div>
+    <div class="buttons-wrap">
+        <button (click)="submit()" [disabled]="(!amountGuiness*!amountBudweiser*!amountSamuelAdams)||!chosenBeneficiary.name" class="submit-button">SEND PAYMENT REQUEST</button>
+        <button class="cancel-button" (click)="chosenBeneficiary = false;amountGuiness = 0; amountSamuelAdams=0; amountBudweiser=0; " >CANCEL</button>
+    </div>
+</div>

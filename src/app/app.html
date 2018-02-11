@@ -1,19 +1,24 @@
-<ion-menu [content]="content">
-    <ion-header>
-      <ion-toolbar>
-        <ion-title>Menu</ion-title>
-      </ion-toolbar>
-    </ion-header>
-  
-    <ion-content>
-      <ion-list>
-        <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
-          {{p.title}}
+<ion-content>
+    <div class="main-wrapper">
+        <div class="header">
+
+        </div>
+        <div class="top-buttons">
+            <button *ngFor="let p of pages" (click)="openPage(p)" [ngClass]="{'nav-button':true,'active':(p.name == show)}">
+                {{p.title}}
+            </button>
+        </div>
+
+
+        <page-home  *ngIf="show == 'home'">
+        </page-home>
+        <status *ngIf="show == 'status'">
+        </status>
+
+        <button (click)="hideStart = true" *ngIf="!hideStart" [ngClass]="['popup-start']">
+            <div class="wrap">
+                START
+            </div>
         </button>
-      </ion-list>
-    </ion-content>
-  
-  </ion-menu>
-  
-  <!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
-  <ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>
+    </div>
+</ion-content>

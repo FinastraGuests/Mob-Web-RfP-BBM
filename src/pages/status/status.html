@@ -1,44 +1,36 @@
-<ion-header>
-    <ion-navbar color="primary">
-        <button ion-button menuToggle>
-            <ion-icon name="menu"></ion-icon>
-          </button>
-      <ion-title>
-        Requests Status
-        <img src="./assets/imgs/Beer.png" alt="Beer" width="40" height="45">
-      </ion-title>
-      
-    </ion-navbar>
-  </ion-header>
-  
-  <ion-content>
-  
-    <ion-card >
-  
-      <ion-card-content>
-        <ion-card-title>
-            
-        </ion-card-title>
-        <p>
-         
-           As of {{today | date:'mediumDate'}} this is the status of your requests:
-        </p>
-      </ion-card-content>
-  
-      <ion-slides pager>
-          
-              <ion-slide *ngFor="let payment of payments; let paymentIndex = index" [attr.data-index]="paymentIndex">
+<div ui-view>
+
+    <div class="update-info">
+        <span class="icon-refresh"></span>Last update {{today | date: 'MM/dd/y'}}
+    </div>
+
+    <div class="filter-buttons">
+
+        <button type="button" (click)="listStatus='PDNG'" [ngClass]="{'active' : (listStatus == 'PDNG')}">
+            Pending
+            <span class="number">
+                {{requests.countOf.pdng}}
+            </span>
+        </button>
+        <button type="button" (click)="listStatus='RJCT'" [ngClass]="{'active' : (listStatus == 'RJCT')}">
+            Declined
+            <span class="number">
+                {{requests.countOf.rjct}}
+            </span>
+        </button>
+        <button type="button" (click)="listStatus='ACSC'" [ngClass]="{'active' : (listStatus == 'ACSC')}">
+            Paid
+            <span class="number">
+                {{requests.countOf.acsc}}
+            </span>
+        </button>
+    </div>
+    <div class="boxes">
+
+        <div *ngFor="let payment of payments | filterStatus:listStatus;  let paymentIndex = index;   " [attr.data-index]="paymentIndex" class="box">
+            <div>
                 <payment-card [payment]="payment" [paymentIndex]="paymentIndex" (deleteref)="deleteFromPayments()"></payment-card>
-                <p></p>
-              </ion-slide>
-          
-              <p></p>
-            </ion-slides>
-            <p></p>
-            <div></div>
-            
-    </ion-card>
-  
-    <!-- <img src="./assets/imgs/Lobster-Shack_Home.png" alt="Lobster" width="50" height="35"> -->
-    
-  </ion-content>
+            </div>
+        </div>
+    </div>
+</div>
