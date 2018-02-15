@@ -24,7 +24,7 @@
     margin-bottom: 20px!important;
 }
 .alert-button-group button:first-child .button-inner{
-  color:#000;
+    color:#000;
 }
 
 
@@ -363,6 +363,9 @@
             letter-spacing: normal;
             text-align: left;
             color: #d38504;
+            max-width: calc(100% - 104px);
+            max-height: 38px;
+            overflow: hidden;
         }
         .invoice{
             font-size: 12px;
