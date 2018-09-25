@@ -114,7 +114,7 @@ export class HomePage implements OnInit {
         headers.append('Content-Type', 'application/json');
         headers.append("Ocp-Apim-Subscription-Key", "bcf707acdb764c3d8339c3e36877bd29")
 
-        let url = 'http://51.141.26.55/api/service-gpp-wrapper/gpp/request_for_payments/submit';
+        let url = 'http://51.140.226.230/api/service-gpp-wrapper/gpp/request_for_payments/submit';
         let ob = this.http.post(url, JSON.stringify(this.payment), { headers: headers })
         .map(res => {
             console.log(res);
