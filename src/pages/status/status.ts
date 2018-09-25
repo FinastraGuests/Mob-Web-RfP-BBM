@@ -35,7 +35,7 @@ export class Status implements OnInit {
               'rjct' : 0
           }
       }
-    this.http.get('http://51.141.26.55/api/service-gpp-wrapper/elasticsearch/payments_by_cdtr?cdtr=Beer%20Brewing%20Machine%20Factory')
+    this.http.get('http://51.140.226.230/api/service-gpp-wrapper/elasticsearch/payments_by_cdtr?cdtr=Beer%20Brewing%20Machine%20Factory')
       .map(res => res.json())
       .subscribe(data => {
         this.payments = data;
