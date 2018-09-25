@@ -175,7 +175,7 @@ export class HomePage implements OnInit {
 
     ngOnInit(): void {
 
-        this.http.get('http://51.141.26.55/api/service-companies/companies/BBMFACTORY')
+        this.http.get('http://51.140.226.230/api/service-companies/companies/BBMFACTORY')
         .map(res => res.json())
         .subscribe(data => {
             this.company = data;
